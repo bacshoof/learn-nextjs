@@ -1,0 +1,32 @@
+.header {
+  font-family: 'Adobe Clean Serif', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  cursor: default;
+
+  span {
+    transition: all 0.1s linear;
+  }
+  span:hover {
+    cursor: pointer;
+    color: rgba(0, 0, 255, 0.13);
+  }
+
+  &__title {
+    font-size: 3.4rem;
+  }
+
+  &__navbar {
+    font-size: 3rem;
+
+    span + span {
+      margin-left: 20px;
+    }
+  }
+
+  &__user {
+    font-size: 1.4rem;
+  }
+}
