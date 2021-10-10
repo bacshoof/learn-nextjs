@@ -1,11 +1,18 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useEffect } from 'react'
+import { Provider, useDispatch } from 'react-redux'
 import Head from 'next/head'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import { store } from '../redux/store'
+import { getStatusRequest } from '../redux/actions/status'
 
 function App(props: { children: ReactElement }) {
   const { children } = props
+  const dispatch = useDispatch()
 
+  useEffect(() => {
+    dispatch(getStatusRequest())
+  }, [])
   return (
     <div className="App">
       <Head>
@@ -25,11 +32,11 @@ function App(props: { children: ReactElement }) {
         />
       </Head>
 
-      <Header />
-
-      <main>{children}</main>
-
-      <Footer />
+      <Provider store={store}>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </Provider>
     </div>
   )
 }

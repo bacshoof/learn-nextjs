@@ -1,11 +1,15 @@
 import React from 'react'
 import App from '../../App/App'
+import { Provider } from 'react-redux'
+import { store } from '../../redux/store'
 
 function Notification() {
   return (
-    <App>
-      <div>Notification</div>
-    </App>
+    <Provider store={store}>
+      <App>
+        <div>Under Construction</div>
+      </App>
+    </Provider>
   )
 }
 
